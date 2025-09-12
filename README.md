@@ -67,3 +67,23 @@ This is a **work-in-progress project**, blending narrative and gameplay into an 
 1. Clone this repository:  
    ```bash
    git clone https://github.com/RONALDMASLOG2024-2025/ignites.git
+2. Open the project in Unity Hub (recommended Unity version: 2022 LTS or higher).
+
+3. Press Play in the Unity Editor to explore the project.
+
+## 📌 Contribution
+
+This project is currently a student-built prototype. Contributions, ideas, and feedback are welcome!
+
+If you’d like to collaborate:
+
+- Open an issue or submit a pull request.
+
+- Share ideas for mechanics, art, or story expansion.
+
+## 📜 License
+
+This project is licensed under the MIT License – see the LICENSE
+ file for details.
+
+⭐ If you enjoy the journey of IGNITES, don’t forget to star the repo!
