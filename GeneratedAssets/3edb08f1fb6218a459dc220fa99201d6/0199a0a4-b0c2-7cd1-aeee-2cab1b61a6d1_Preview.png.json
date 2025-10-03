@@ -1,0 +1,11 @@
+{
+    "asset": "022dd8a4bb252384abaa2e3f23ef2d06",
+    "fileName": "0199a0a4-b0c2-7cd1-aeee-2cab1b61a6d1_Preview.png",
+    "prompt": "Design a tilemap divided into 3 parts, representing 3 levels, with the third level being the final level.",
+    "negativePrompt": "",
+    "model": "575ecf67-4425-4939-97b9-5e138b8ee234",
+    "modelName": "Unity Texture2D",
+    "customSeed": 733769335,
+    "w3CTraceId": "7187166609ee00fcaf8ccc87b01aab5f",
+    "refinementMode": "Generation"
+}

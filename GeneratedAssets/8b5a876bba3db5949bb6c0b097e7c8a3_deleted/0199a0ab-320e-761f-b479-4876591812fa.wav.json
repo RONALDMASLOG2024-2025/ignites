@@ -1,0 +1,13 @@
+{
+    "asset": "8b5a876bba3db5949bb6c0b097e7c8a3",
+    "fileName": "0199a0ab-320e-761f-b479-4876591812fa.wav",
+    "prompt": "A mysterious whispering wind sound for a fantasy adventure game.",
+    "negativePrompt": "",
+    "model": "0ee39b33-2893-4e0f-8c46-0e0bdd4eda85",
+    "modelName": "Text to Sound",
+    "customSeed": -1,
+    "w3CTraceId": "81765c8a96ea9b708c61b076ca169987",
+    "duration": 10.0,
+    "autoTrim": false,
+    "hasReference": false
+}

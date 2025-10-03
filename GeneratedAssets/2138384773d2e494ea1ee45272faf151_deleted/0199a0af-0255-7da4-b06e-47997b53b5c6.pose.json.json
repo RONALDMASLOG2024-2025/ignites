@@ -1,0 +1,11 @@
+{
+    "asset": "2138384773d2e494ea1ee45272faf151",
+    "fileName": "0199a0af-0255-7da4-b06e-47997b53b5c6.pose.json",
+    "prompt": "A walking animation for a goblin NPC",
+    "negativePrompt": "",
+    "model": "a9c27ca4-3ec9-43e8-96cd-ee891aba64c5",
+    "modelName": "Text to Motion",
+    "customSeed": 2016339472,
+    "w3CTraceId": "d75ae450835c8b1b4b6dceb4812eccca",
+    "isTrimmed": false
+}

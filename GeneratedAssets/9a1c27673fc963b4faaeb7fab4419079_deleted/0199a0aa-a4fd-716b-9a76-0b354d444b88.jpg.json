@@ -1,0 +1,20 @@
+{
+    "asset": "9a1c27673fc963b4faaeb7fab4419079",
+    "fileName": "0199a0aa-a4fd-716b-9a76-0b354d444b88.jpg",
+    "prompt": "A goblin enemy sprite for a fantasy adventure game.",
+    "negativePrompt": "",
+    "model": "94c4260f-b988-40e7-b3d3-435b9f449bd0",
+    "modelName": "Flux.1 Dev",
+    "customSeed": -1,
+    "w3CTraceId": "9c1a9b6c2c7a5b45ec7483b5ff4efab7",
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": []
+    },
+    "upscaleFactor": 0
+}
