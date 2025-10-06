@@ -11,6 +11,11 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource footstepSource; // Drag AudioSource here
     public AudioClip footstepClip;     // Assign your footsteps-stairs-fast-90220.mp3
 
+    [Header("Attack Sounds")]
+    public AudioSource attackSource;   // Another AudioSource for attack sounds
+    public AudioClip attackClip1;      // Assign your attack sound (e.g., sword slash)
+    public AudioClip attackClip2;      // Assign your second attack sound (e.g., heavy slash)
+
     void Update()
     {
         HandleAttackInput();
@@ -54,16 +59,33 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private float attack1Cooldown = 0.7f; // Cooldown in seconds for attack 1
+    private float attack2Cooldown = 0.7f; // Cooldown in seconds for attack 2
+    private float lastAttack1Time = -Mathf.Infinity;
+    private float lastAttack2Time = -Mathf.Infinity;
+
     void HandleAttackInput()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && Time.time - lastAttack1Time >= attack1Cooldown)
         {
             animator.SetTrigger("Attack");
+
+            // Play attack sound 1
+            if (attackClip1 != null)
+                attackSource.PlayOneShot(attackClip1);
+
+            lastAttack1Time = Time.time;
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && Time.time - lastAttack2Time >= attack2Cooldown)
         {
             animator.SetTrigger("Attack-2");
+
+            // Play attack sound 2
+            if (attackClip2 != null)
+                attackSource.PlayOneShot(attackClip2);
+
+            lastAttack2Time = Time.time;
         }
     }
 
