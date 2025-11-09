@@ -19,6 +19,12 @@ public class Enemy_Combat : MonoBehaviour
         }
 
     }
+
+    public void Attack()
+    {
+        // This method can be called from an animation event
+        Debug.Log("Enemy attack animation event triggered.");
+    }
 }
 
 

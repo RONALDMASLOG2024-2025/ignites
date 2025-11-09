@@ -221,7 +221,7 @@ TextureImporter:
       name: Tree_1
       rect:
         serializedVersion: 2
-        x: 236
+        x: 235
         y: 398
         width: 110
         height: 174
@@ -349,6 +349,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Tree_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 178
+        width: 768
+        height: 398
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e24bf293b70bb349b58c94ac2ddadf9
+      internalID: 1547909740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -372,6 +394,7 @@ TextureImporter:
       Tree_4: 4246777929600769233
       Tree_5: -1089773682390131457
       Tree_6: 3690649294209121615
+      Tree_7: 1547909740
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

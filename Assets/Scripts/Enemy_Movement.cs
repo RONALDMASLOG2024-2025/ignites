@@ -9,6 +9,8 @@ public class Enemy_Movement : MonoBehaviour
     private Rigidbody2D rb;
     private Transform player;
 
+    public float attackRange = 1f;
+
 
     private EnemyState currentState;
 
@@ -35,6 +37,16 @@ public class Enemy_Movement : MonoBehaviour
 
             animator.SetBool("isChasing", false);
         }
+        else if (currentState == EnemyState.Attacking)
+        {
+
+            animator.SetBool("isAttacking", false);
+        }
+        // else if (currentState == EnemyState.Dead)
+        // {
+
+        //     animator.SetBool("isDead", false);
+        // }
 
 
         currentState = newState;
@@ -48,6 +60,16 @@ public class Enemy_Movement : MonoBehaviour
 
             animator.SetBool("isChasing", true);
         }
+        else if (currentState == EnemyState.Attacking)
+        {
+
+            animator.SetBool("isAttacking", true);
+        }
+        // else if (currentState == EnemyState.Dead)
+        // {
+
+        //     animator.SetBool("isDead", true);
+        // }
 
     }
 
@@ -57,23 +79,34 @@ public class Enemy_Movement : MonoBehaviour
     {
         if (currentState == EnemyState.Chasing)
         {
-            if ((player.position.x > transform.position.x && transform.localScale.x < 0) || (player.position.x < transform.position.x && transform.localScale.x > 0))
-            {
-                facingDirection *= -1;
-                Vector3 newScale = transform.localScale;
-                newScale.x *= -1;
-                transform.localScale = newScale;
-            }
+
             MoveEnemy();
+        }
+        else if (currentState == EnemyState.Attacking)
+        {
+            rb.linearVelocity = Vector2.zero; // Stop moving when attacking
         }
     }
 
     void MoveEnemy()
     {
+
+        if (Vector2.Distance(transform.position, player.position) <= attackRange)
+        {
+            ChangeState(EnemyState.Attacking);
+            
+        }
+        else if ((player.position.x > transform.position.x && transform.localScale.x < 0) || (player.position.x < transform.position.x && transform.localScale.x > 0))
+        {
+            facingDirection *= -1;
+            Vector3 newScale = transform.localScale;
+            newScale.x *= -1;
+            transform.localScale = newScale;
+        }
         rb.linearVelocity = new Vector2(player.position.x - transform.position.x, player.position.y - transform.position.y).normalized * speed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
@@ -105,5 +138,7 @@ public class Enemy_Movement : MonoBehaviour
 public enum EnemyState
 {
     Idle,
-    Chasing
+    Chasing,
+    Attacking,
+    // Dead
 }

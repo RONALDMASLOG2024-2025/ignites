@@ -1,0 +1,975 @@
+fileFormatVersion: 2
+guid: d8215fedc49ff344baf843181616e83f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5856520819513988015
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_0
+  - first:
+      213: -3273745349591910242
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_1
+  - first:
+      213: 9001303485852520478
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_2
+  - first:
+      213: -5240564983602152662
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_3
+  - first:
+      213: 3921400753766068104
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_4
+  - first:
+      213: -892156688282142153
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_5
+  - first:
+      213: 3482329763296861396
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_6
+  - first:
+      213: -4837074060777199512
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_7
+  - first:
+      213: 371324367798296844
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_8
+  - first:
+      213: -5473144089342858761
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_9
+  - first:
+      213: 6628165763141529788
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_10
+  - first:
+      213: 8427512773824748493
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_11
+  - first:
+      213: 7918531558619494484
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_12
+  - first:
+      213: -5950531311719797909
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_13
+  - first:
+      213: -1788845523034717231
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_14
+  - first:
+      213: -7653856630233425120
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_15
+  - first:
+      213: 690985195494743233
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_16
+  - first:
+      213: -3926897744085044441
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_17
+  - first:
+      213: 1499078347509970454
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_18
+  - first:
+      213: 1420382238043171389
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_19
+  - first:
+      213: -473863326877324455
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_20
+  - first:
+      213: -2781340915295242119
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_21
+  - first:
+      213: -4483427640248101816
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_22
+  - first:
+      213: -4876679013061114719
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_23
+  - first:
+      213: -1643680259880649568
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_24
+  - first:
+      213: -84008704830657629
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_25
+  - first:
+      213: -330625302076691890
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_26
+  - first:
+      213: -4795400146174611124
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_27
+  - first:
+      213: 5864984264000161482
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_28
+  - first:
+      213: 8581039472635167841
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_29
+  - first:
+      213: 4434964427156193917
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_30
+  - first:
+      213: 4625678540443179527
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_31
+  - first:
+      213: 6893160985690697470
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_32
+  - first:
+      213: 6061916895569064454
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_33
+  - first:
+      213: 7055026095218891497
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_34
+  - first:
+      213: -5861185502453827506
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_35
+  - first:
+      213: -9144149983384376471
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_36
+  - first:
+      213: -1349264930287807223
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_37
+  - first:
+      213: -7434626971444960576
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_38
+  - first:
+      213: 3937514676205078501
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_39
+  - first:
+      213: 7625988060080084021
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_40
+  - first:
+      213: 9180631638322678153
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_41
+  - first:
+      213: 7361668530973139482
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_42
+  - first:
+      213: -6142965206664438335
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_43
+  - first:
+      213: 7860628743528471976
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_44
+  - first:
+      213: -2068311681046524769
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_45
+  - first:
+      213: -1072508758965597173
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_46
+  - first:
+      213: 4909366141776542909
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_47
+  - first:
+      213: 957358480263344491
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_48
+  - first:
+      213: 6221871183422293385
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_49
+  - first:
+      213: 7468219715528369009
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_50
+  - first:
+      213: 4740195935316331068
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_51
+  - first:
+      213: -235872987065572247
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_52
+  - first:
+      213: 848238101273814614
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_53
+  - first:
+      213: 7633630332192009447
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_54
+  - first:
+      213: -7611609953210508198
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_55
+  - first:
+      213: 1118833201557769145
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_56
+  - first:
+      213: 475188338170577785
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_57
+  - first:
+      213: -486713715042394549
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_58
+  - first:
+      213: 5587960443426943293
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_59
+  - first:
+      213: -3056392037160527756
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_60
+  - first:
+      213: -7010844772075227511
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_61
+  - first:
+      213: -5714519397868043148
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_62
+  - first:
+      213: 4068721260214311803
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_63
+  - first:
+      213: 6620159329867562116
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_64
+  - first:
+      213: -1885534710577493448
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_65
+  - first:
+      213: -1834411287368621806
+    second: 565091789_4082460308683456_8090299746347251575_n (1)_66
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 35
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: VisionOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Torch_Boss_0
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2070f00be4dfd2643b0e9588338ca1ea
+      internalID: -220275656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_1
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22dcab63e7463b347b61620615e3b84a
+      internalID: -307920970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_2
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7806f10acb9d1d47b0a7c78c173f765
+      internalID: -1958956068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e42614e899f66040ba25b2c8c2ff22e
+      internalID: 723573529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_4
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe62c5a6511c9c041843eeb3172844e4
+      internalID: 40533314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_5
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a0cf2de6d04dfd4ea12ae6df7a846c5
+      internalID: -2023419964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2df4eff15f1a95e498eed0df4e75b709
+      internalID: -1632339978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_7
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8773b8be5f7ba3441bd6637b3a2486b6
+      internalID: -737339269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_8
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf6fa68931d8b524fb102d374c192d96
+      internalID: 1685658595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_9
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f09af60017470f4e9538fd77bdb1e06
+      internalID: 2017865605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c3e34847b7c08649940f70431bd3053
+      internalID: 1646049397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 849c9c8a4b7bf6c46b5e31da95aa0e7a
+      internalID: 1591625547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_12
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b5d45647e63b544a8b94512efc09599
+      internalID: 491332410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_13
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47dc5094ee92135418d0fc6c132b70c8
+      internalID: -535994474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_14
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10a1233756a7d4846be5a3d143133301
+      internalID: -1220293550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_15
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ea1a70bcaa333e40b0de7ab6ed7d2b1
+      internalID: 990418354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_16
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e317f2edaf10e0419d3bae7bc6ca8c2
+      internalID: -772385950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_17
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bae4094895d20524c84d4956f1293de2
+      internalID: -369539371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_18
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ef07507e820424fbc9f31a103ff239
+      internalID: 1891010448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_19
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79a870a1dcc5f8c4a93d8043beef65d7
+      internalID: 806835535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_20
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 395c5585894644d4bb24046a004f8809
+      internalID: -1239812680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_21
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a4852d0a5169b647847e81b9f203c3f
+      internalID: 272736031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_22
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf9106578c045b1478f3f2b95f19cc46
+      internalID: -1007849751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_23
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 893adfc0ce2814b4fb2f9908066ea2aa
+      internalID: -1504222369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch_Boss_24
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a352d2f821ee51f4ea3a721e68681434
+      internalID: -2045587984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: da23678f5d599b741b131247d29cc724
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":true,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":192.0,"y":192.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      - key: SpriteEditor.SliceOnImport
+        value: True
+    nameFileIdTable:
+      Torch_Boss_0: -220275656
+      Torch_Boss_1: -307920970
+      Torch_Boss_10: 1646049397
+      Torch_Boss_11: 1591625547
+      Torch_Boss_12: 491332410
+      Torch_Boss_13: -535994474
+      Torch_Boss_14: -1220293550
+      Torch_Boss_15: 990418354
+      Torch_Boss_16: -772385950
+      Torch_Boss_17: -369539371
+      Torch_Boss_18: 1891010448
+      Torch_Boss_19: 806835535
+      Torch_Boss_2: -1958956068
+      Torch_Boss_20: -1239812680
+      Torch_Boss_21: 272736031
+      Torch_Boss_22: -1007849751
+      Torch_Boss_23: -1504222369
+      Torch_Boss_24: -2045587984
+      Torch_Boss_3: 723573529
+      Torch_Boss_4: 40533314
+      Torch_Boss_5: -2023419964
+      Torch_Boss_6: -1632339978
+      Torch_Boss_7: -737339269
+      Torch_Boss_8: 1685658595
+      Torch_Boss_9: 2017865605
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
