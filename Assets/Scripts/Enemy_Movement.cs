@@ -6,15 +6,29 @@ public class Enemy_Movement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public float speed;
+    public float attackRange = 1f;
+
+
+    public float attackCooldown = 1f;
+    public int facingDirection = -1;
+    private float attackCooldownTimer;
+
+    public float playerDetectionRange = 5f;
+    public Transform detectionPoint;
+
+
+    public LayerMask playerLayer;
+
+
     private Rigidbody2D rb;
     private Transform player;
 
-    public float attackRange = 1f;
+
 
 
     private EnemyState currentState;
 
-    public int facingDirection = -1;
+
 
     private Animator animator;
     void Start()
@@ -24,10 +38,21 @@ public class Enemy_Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         ChangeState(EnemyState.Idle);
+
+        Debug.Log("Detect the object: " + detectionPoint.position);
+    }
+
+    void ChangeStateSSSSS(EnemyState newState)
+    {
+
+        Debug.Log(" State for enemy: " + newState);
     }
 
     void ChangeState(EnemyState newState)
     {
+
+        Debug.Log("New State for enemy: " + newState);
+        // turn off current state's animation
         if (currentState == EnemyState.Idle)
         {
             animator.SetBool("isIdle", false);
@@ -39,7 +64,7 @@ public class Enemy_Movement : MonoBehaviour
         }
         else if (currentState == EnemyState.Attacking)
         {
-
+            Debug.Log("Stopping attack animation " + newState);
             animator.SetBool("isAttacking", false);
         }
         // else if (currentState == EnemyState.Dead)
@@ -51,6 +76,7 @@ public class Enemy_Movement : MonoBehaviour
 
         currentState = newState;
 
+        // turn on new state's animation
         if (currentState == EnemyState.Idle)
         {
             animator.SetBool("isIdle", true);
@@ -77,26 +103,34 @@ public class Enemy_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        CheckForPlayer();
+
+        if (attackCooldownTimer > 0)
+        {
+            attackCooldownTimer -= Time.deltaTime;
+        }
+
+
+
         if (currentState == EnemyState.Chasing)
         {
 
+            Debug.Log("Chasinggggggg the player");
             MoveEnemy();
         }
         else if (currentState == EnemyState.Attacking)
         {
             rb.linearVelocity = Vector2.zero; // Stop moving when attacking
+            Debug.Log("attackinggggg the player");
         }
     }
 
     void MoveEnemy()
     {
 
-        if (Vector2.Distance(transform.position, player.position) <= attackRange)
-        {
-            ChangeState(EnemyState.Attacking);
-            
-        }
-        else if ((player.position.x > transform.position.x && transform.localScale.x < 0) || (player.position.x < transform.position.x && transform.localScale.x > 0))
+
+        if ((player.position.x > transform.position.x && transform.localScale.x < 0) || (player.position.x < transform.position.x && transform.localScale.x > 0))
         {
             facingDirection *= -1;
             Vector3 newScale = transform.localScale;
@@ -106,29 +140,43 @@ public class Enemy_Movement : MonoBehaviour
         rb.linearVelocity = new Vector2(player.position.x - transform.position.x, player.position.y - transform.position.y).normalized * speed;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void CheckForPlayer()
     {
-        if (collision.gameObject.tag == "Player")
+        Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(detectionPoint.position, playerDetectionRange, playerLayer);
+
+        if (hitPlayers.Length > 0)
         {
+            player = hitPlayers[0].transform;
 
-
-            if (player == null)
+            if (Vector2.Distance(transform.position, player.position) <= attackRange && attackCooldownTimer <= 0f)
             {
-                player = collision.transform;
+                attackCooldownTimer = attackCooldown;
+                ChangeState(EnemyState.Attacking);
+
             }
-            ChangeState(EnemyState.Chasing);
+            else if (Vector2.Distance(transform.position, player.position) > attackRange && currentState != EnemyState.Attacking)
+            {
+                ChangeState(EnemyState.Chasing);
+            }
+
+
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
+        else
         {
-
-
             rb.linearVelocity = Vector2.zero; // Stop moving when player exits the trigger
             ChangeState(EnemyState.Idle);
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(detectionPoint.position, playerDetectionRange);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(detectionPoint.position, attackRange);
     }
 
 }

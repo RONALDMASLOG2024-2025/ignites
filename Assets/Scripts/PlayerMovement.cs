@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -16,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip attackClip1;      // Assign your attack sound (e.g., sword slash)
     public AudioClip attackClip2;      // Assign your second attack sound (e.g., heavy slash)
 
+    private bool isKnockback;
+
     void Update()
     {
         HandleAttackInput();
@@ -23,38 +26,44 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
 
-        if ((horizontal > 0 && transform.localScale.x < 0) || (horizontal < 0 && transform.localScale.x > 0))
+        if (isKnockback == false)
         {
-            Flip();
-        }
 
-        // Apply movement
-        Vector2 move = new Vector2(horizontal, vertical).normalized * speed;
-        rb.linearVelocity = move;
 
-        // Animator values
-        animator.SetFloat("horizontal", Mathf.Abs(horizontal));
-        animator.SetFloat("vertical", Mathf.Abs(vertical));
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");
 
-        // Footstep Sound Logic
-        if (move.magnitude > 0.1f)
-        {
-            if (!footstepSource.isPlaying)
+            if ((horizontal > 0 && transform.localScale.x < 0) || (horizontal < 0 && transform.localScale.x > 0))
             {
-                Debug.Log("Playing footstep sound");
-                footstepSource.clip = footstepClip;
-                footstepSource.loop = true;
-                footstepSource.Play();
+                Flip();
             }
-        }
-        else
-        {
-            if (footstepSource.isPlaying)
+
+            // Apply movement
+            Vector2 move = new Vector2(horizontal, vertical).normalized * speed;
+            rb.linearVelocity = move;
+
+            // Animator values
+            animator.SetFloat("horizontal", Mathf.Abs(horizontal));
+            animator.SetFloat("vertical", Mathf.Abs(vertical));
+
+            // Footstep Sound Logic
+            if (move.magnitude > 0.1f)
             {
-                footstepSource.Stop();
+                if (!footstepSource.isPlaying)
+                {
+                    Debug.Log("Playing footstep sound");
+                    footstepSource.clip = footstepClip;
+                    footstepSource.loop = true;
+                    footstepSource.Play();
+                }
+            }
+            else
+            {
+                if (footstepSource.isPlaying)
+                {
+                    footstepSource.Stop();
+                }
             }
         }
     }
@@ -93,5 +102,21 @@ public class PlayerMovement : MonoBehaviour
     {
         facingDirection *= -1;
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+    }
+
+    public void knockback(Transform enemy, float knockbackForce, float stunTime)
+    {
+        isKnockback = true;
+        Vector2 direction = (transform.position - enemy.position).normalized;
+        rb.linearVelocity = direction * knockbackForce; // Adjust knockback force as needed
+        StartCoroutine(knockbackCounter(stunTime));
+        // Implement knockback logic here
+    }
+
+    IEnumerator knockbackCounter(float stunTime)
+    {
+        yield return new WaitForSeconds(stunTime);
+        rb.linearVelocity = Vector2.zero;
+        isKnockback = false;
     }
 }
