@@ -11,14 +11,15 @@ public class Player_Combat : MonoBehaviour
 
 
     public float attack1Cooldown = 1f; // Cooldown in seconds for attack 1
-    // public float attack2Cooldown = 1f; // Cooldown in seconds for attack 2
-    // // Remaining cooldown time. 0 = ready.
+    public float attack2Cooldown = 1f; // Cooldown in seconds for attack 2
+
+    // Remaining cooldown times. 0 = ready.
     private float timer1 = 0f;
-    // private float timer2 = 0f;
+    private float timer2 = 0f;
     [Header("Attack Sounds")]
     public AudioSource attackSource;   // Another AudioSource for attack sounds
     public AudioClip attackClip1;      // Assign your attack sound (e.g., sword slash)
-    // public AudioClip attackClip2;      // Assign your second attack sound (e.g., heavy slash)
+    public AudioClip attackClip2;      // Assign your second attack sound (e.g., heavy slash)
 
 
 
@@ -34,11 +35,29 @@ public class Player_Combat : MonoBehaviour
             if (timer1 < 0f) timer1 = 0f; // clamp to zero
         }
 
-        // if (timer2 > 0f)
-        // {
-        //     timer2 -= Time.deltaTime;
-        //     if (timer2 < 0f) timer2 = 0f; // clamp to zero
-        // }
+        if (timer2 > 0f)
+        {
+            timer2 -= Time.deltaTime;
+            if (timer2 < 0f) timer2 = 0f; // clamp to zero
+        }
+    }
+
+    // Attack2: separate cooldown and animation boolean `isAttacking2`.
+    public void Attack2()
+    {
+        if (timer2 <= 0f)
+        {
+            if (anim != null)
+            {
+                anim.SetBool("isAttacking2", true);
+
+                // Play attack sound 2
+                if (attackSource != null && attackClip2 != null)
+                    attackSource.PlayOneShot(attackClip2);
+
+                timer2 = attack2Cooldown;
+            }
+        }
     }
     public void Attack1()
     {
@@ -46,14 +65,15 @@ public class Player_Combat : MonoBehaviour
         if (timer1 <= 0f)
         {
             if (anim != null)
+            {
                 anim.SetBool("isAttacking1", true);
 
+                // Play attack sound 1
+                if (attackSource != null && attackClip1 != null)
+                    attackSource.PlayOneShot(attackClip1);
 
-            // Play attack sound 1
-            if (attackSource != null && attackClip1 != null)
-                attackSource.PlayOneShot(attackClip1);
-
-            timer1 = attack1Cooldown;
+                timer1 = attack1Cooldown;
+            }
         }
     }
 
@@ -88,8 +108,12 @@ public class Player_Combat : MonoBehaviour
 
     public void FinishAttack()
     {
-        anim.SetBool("isAttacking1", false);
-        // anim.SetBool("isAttacking2", false);
+        // Clear both attack flags so either animation can call the same event
+        if (anim != null)
+        {
+            anim.SetBool("isAttacking1", false);
+            anim.SetBool("isAttacking2", false);
+        }
     }
 
     private void OnDrawGizmosSelected()

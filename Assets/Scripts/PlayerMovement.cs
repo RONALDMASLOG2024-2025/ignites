@@ -29,12 +29,13 @@ public class PlayerMovement : MonoBehaviour
 
 
         }
+        
+        if (Input.GetMouseButtonDown(1))
+        {
 
-        // if (Input.GetMouseButtonDown(1))
-        // {
+            playerCombat.Attack2();
+        }
 
-        //     playerCombat.Attack2();
-        // }
     }
 
     void FixedUpdate()
