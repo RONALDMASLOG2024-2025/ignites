@@ -13,9 +13,8 @@ public class Player_Combat : MonoBehaviour
     public float attack1Cooldown = 1f; // Cooldown in seconds for attack 1
     public float attack2Cooldown = 1f; // Cooldown in seconds for attack 2
 
-    // Remaining cooldown times. 0 = ready.
-    private float timer1 = 0f;
-    private float timer2 = 0f;
+    // Shared attack cooldown timer. When >0, no attacks are allowed.
+    private float attackTimer = 0f;
     [Header("Attack Sounds")]
     public AudioSource attackSource;   // Another AudioSource for attack sounds
     public AudioClip attackClip1;      // Assign your attack sound (e.g., sword slash)
@@ -29,51 +28,42 @@ public class Player_Combat : MonoBehaviour
 
     private void Update()
     {
-        if (timer1 > 0f)
+        if (attackTimer > 0f)
         {
-            timer1 -= Time.deltaTime;
-            if (timer1 < 0f) timer1 = 0f; // clamp to zero
-        }
-
-        if (timer2 > 0f)
-        {
-            timer2 -= Time.deltaTime;
-            if (timer2 < 0f) timer2 = 0f; // clamp to zero
+            attackTimer -= Time.deltaTime;
+            if (attackTimer < 0f) attackTimer = 0f; // clamp to zero
         }
     }
 
     // Attack2: separate cooldown and animation boolean `isAttacking2`.
     public void Attack2()
     {
-        if (timer2 <= 0f)
+        // Use shared cooldown: only allow if attackTimer is 0
+        if (attackTimer <= 0f)
         {
             if (anim != null)
-            {
                 anim.SetBool("isAttacking2", true);
 
-                // Play attack sound 2
-                if (attackSource != null && attackClip2 != null)
-                    attackSource.PlayOneShot(attackClip2);
+            // Play attack sound 2
+            if (attackSource != null && attackClip2 != null)
+                attackSource.PlayOneShot(attackClip2);
 
-                timer2 = attack2Cooldown;
-            }
+            attackTimer = attack2Cooldown;
         }
     }
     public void Attack1()
     {
-        // Only allow attack when cooldown has expired
-        if (timer1 <= 0f)
+        // Only allow attack when shared cooldown has expired
+        if (attackTimer <= 0f)
         {
             if (anim != null)
-            {
                 anim.SetBool("isAttacking1", true);
 
-                // Play attack sound 1
-                if (attackSource != null && attackClip1 != null)
-                    attackSource.PlayOneShot(attackClip1);
+            // Play attack sound 1
+            if (attackSource != null && attackClip1 != null)
+                attackSource.PlayOneShot(attackClip1);
 
-                timer1 = attack1Cooldown;
-            }
+            attackTimer = attack1Cooldown;
         }
     }
 
