@@ -12,8 +12,8 @@ public class MusicManager : MonoBehaviour
     public AudioClip menuMusic; // Optional: separate music for main menu
 
     [Header("Scene Settings")]
-    [Tooltip("Scenes where game music should play (e.g., MainGame, Level2)")]
-    public string[] gameScenes = { "MainGame", "Level2" };
+    [Tooltip("Scenes where game music should play (e.g., Level1, Level2, BossLevel)")]
+    public string[] gameScenes = { "Level1", "Level2", "BossLevel" };
     
     [Tooltip("Scenes where menu music should play (e.g., MainMenu)")]
     public string[] menuScenes = { "MainMenu" };

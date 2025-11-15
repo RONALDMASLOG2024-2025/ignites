@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     // Call from the Play button. Validates the scene is in Build Settings before loading.
     public void PlayGame()
     {
-        const string sceneName = "MainGame";
+        const string sceneName = "Level1";
         Debug.Log($"Play button pressed! Attempting to load {sceneName}...");
 
         if (!IsSceneInBuildSettings(sceneName))

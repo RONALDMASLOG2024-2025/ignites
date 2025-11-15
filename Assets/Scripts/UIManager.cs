@@ -18,7 +18,8 @@ public class UIManager : MonoBehaviour
     public GameObject finalVictoryPanel; // Special panel for beating the final level
     
     [Header("Victory / Level")]
-    public string nextLevelSceneName = ""; // set in inspector for Level1 -> Level2. Leave empty for final level.
+    [Tooltip("OPTIONAL: Leave empty to auto-detect next level. System automatically determines if this is the final level.")]
+    public string nextLevelSceneName = ""; // Auto-detected if empty
     
     [Header("Final Victory")]
     [TextArea(3, 6)]
@@ -110,8 +111,17 @@ public class UIManager : MonoBehaviour
 
     public void ShowVictory()
     {
-        // Check if this is the final level (no next level scene set)
-        if (string.IsNullOrEmpty(nextLevelSceneName))
+        // Auto-detect next level if not manually set
+        string nextLevel = nextLevelSceneName;
+        if (string.IsNullOrEmpty(nextLevel) && GameProgressManager.Instance != null)
+        {
+            string currentScene = SceneManager.GetActiveScene().name;
+            nextLevel = GameProgressManager.Instance.GetNextLevel(currentScene);
+            Debug.Log($"UIManager: Auto-detected next level: '{nextLevel}' (empty = final level)");
+        }
+        
+        // Check if this is the final level (no next level)
+        if (string.IsNullOrEmpty(nextLevel))
         {
             ShowFinalVictory();
         }
@@ -120,6 +130,11 @@ public class UIManager : MonoBehaviour
             // Regular victory with Next Level button
             if (victoryPanel != null) victoryPanel.SetActive(true);
             if (hudPanel != null) hudPanel.SetActive(false);
+            
+            // Ensure player can click the Next Level button
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            
             // Delegate to GameState which will broadcast to all subscribers
             if (GameState.Instance != null)
             {
@@ -187,7 +202,10 @@ public class UIManager : MonoBehaviour
         {
             GameState.Instance.ResetState();
         }
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // Reload the current level (not MainMenu or Level1)
+        string currentScene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentScene);
+        Debug.Log($"🔄 Restarting current level: {currentScene}");
     }
 
     public void OnQuitToMenuButton()
@@ -203,19 +221,52 @@ public class UIManager : MonoBehaviour
     // Called by Victory panel Next Level button
     public void OnNextLevelButton()
     {
+        Debug.Log("Next Level button clicked!");
+        
+        string currentScene = SceneManager.GetActiveScene().name;
+        
+        // Auto-detect next level if not manually set
+        string nextLevel = nextLevelSceneName;
+        if (string.IsNullOrEmpty(nextLevel) && GameProgressManager.Instance != null)
+        {
+            nextLevel = GameProgressManager.Instance.GetNextLevel(currentScene);
+            Debug.Log($"UIManager: Auto-detected next level: '{nextLevel}'");
+        }
+        
+        // Validate next level exists
+        if (string.IsNullOrEmpty(nextLevel))
+        {
+            Debug.LogError("UIManager: No next level found! This should be the final level.");
+            return;
+        }
+
+        // Save progress: mark current level as completed
+        try
+        {
+            if (GameProgressManager.Instance != null)
+            {
+                GameProgressManager.Instance.MarkLevelComplete(currentScene);
+                Debug.Log($"✅ Level '{currentScene}' marked as completed. Next level '{nextLevel}' unlocked.");
+            }
+            else
+            {
+                Debug.LogWarning("GameProgressManager.Instance is null. Progress not saved.");
+            }
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Error saving progress: {e.Message}");
+        }
+
         // Reset GameState (broadcasts OnGameReset event to subscribers)
         if (GameState.Instance != null)
         {
             GameState.Instance.ResetState();
         }
-        if (!string.IsNullOrEmpty(nextLevelSceneName))
-        {
-            SceneManager.LoadScene(nextLevelSceneName);
-        }
-        else
-        {
-            Debug.LogWarning("UIManager: Next level scene name not set in inspector.");
-        }
+        
+        // Load next level
+        Debug.Log($"Loading next level: {nextLevel}");
+        SceneManager.LoadScene(nextLevel);
     }
 
     // HUD helpers
