@@ -267,9 +267,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53921f1fe4b45db49b37166b5a6558b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
-  currentHealth: 50
-  maxHealth: 50
+  currentHealth: 100
+  maxHealth: 100
   isBoss: 1
+  meatDropPrefab: {fileID: 6750078776292385799, guid: 04dc8aa77e203ec4a971c456c1d9c036, type: 3}
+  meatDropChance: 100
+  boneDropPrefab: {fileID: 5010312209510064220, guid: e7a9639e3930f4940ac9dd682edf82d6, type: 3}
+  boneDropChance: 100
   dropPrefab: {fileID: 6750078776292385799, guid: 04dc8aa77e203ec4a971c456c1d9c036, type: 3}
   dropChance: 100
 --- !u!114 &4392414222435897042

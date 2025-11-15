@@ -11,10 +11,19 @@ public class Enemy_Health : MonoBehaviour
     public bool isBoss = false;
 
     [Header("Loot Drops")]
-    [Tooltip("Prefab to spawn when enemy dies (e.g., meat pickup)")]
-    public GameObject dropPrefab;
+    [Tooltip("Meat drop - heals player")]
+    public GameObject meatDropPrefab;
+    [Range(0, 100)]
+    public float meatDropChance = 50f;
     
-    [Tooltip("Chance to drop loot (0-100%). 100 = always drops")]
+    [Tooltip("Bone drop - enhances player stats (damage/speed)")]
+    public GameObject boneDropPrefab;
+    [Range(0, 100)]
+    public float boneDropChance = 30f;
+    
+    [Header("Legacy Drop (deprecated - use specific drops above)")]
+    [Tooltip("Old drop system - will be removed. Use meatDropPrefab/boneDropPrefab instead")]
+    public GameObject dropPrefab;
     [Range(0, 100)]
     public float dropChance = 50f;
 
@@ -45,11 +54,26 @@ public class Enemy_Health : MonoBehaviour
 
     private void Die()
     {
-        // Drop loot if configured
+        // Drop meat if configured
+        if (meatDropPrefab != null && Random.Range(0f, 100f) <= meatDropChance)
+        {
+            Instantiate(meatDropPrefab, transform.position, Quaternion.identity);
+            Debug.Log($"{name} dropped meat!");
+        }
+        
+        // Drop bone if configured (independent roll)
+        if (boneDropPrefab != null && Random.Range(0f, 100f) <= boneDropChance)
+        {
+            Vector3 bonePosition = transform.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+            Instantiate(boneDropPrefab, bonePosition, Quaternion.identity);
+            Debug.Log($"{name} dropped bone!");
+        }
+        
+        // Legacy drop system (for backwards compatibility)
         if (dropPrefab != null && Random.Range(0f, 100f) <= dropChance)
         {
             Instantiate(dropPrefab, transform.position, Quaternion.identity);
-            Debug.Log($"{name} dropped loot!");
+            Debug.Log($"{name} dropped loot (legacy)!");
         }
 
         // Notify manager if this is a regular enemy
