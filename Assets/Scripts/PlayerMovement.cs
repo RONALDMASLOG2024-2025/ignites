@@ -29,12 +29,14 @@ public class PlayerMovement : MonoBehaviour
 
 
         }
-        
+
         if (Input.GetMouseButtonDown(1))
         {
 
             playerCombat.Attack2();
         }
+
+ 
 
     }
 
