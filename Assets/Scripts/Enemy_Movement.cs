@@ -31,6 +31,14 @@ public class Enemy_Movement : MonoBehaviour
 
 
     private Animator animator;
+    [Header("Audio")]
+    public AudioClip footstepClip;
+    [Range(0f, 1f)]
+    public float footstepVolume = 0.5f;
+    [Range(1f, 50f)]
+    public float maxFootstepDistance = 20f; // How far footsteps can be heard
+    private AudioSource footstepSource;
+    
     void Start()
     {
 
@@ -38,6 +46,35 @@ public class Enemy_Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         ChangeState(EnemyState.Idle);
+
+        // Setup footstep audio source with spatial audio settings
+        footstepSource = GetComponent<AudioSource>();
+        if (footstepSource == null && footstepClip != null)
+        {
+            footstepSource = gameObject.AddComponent<AudioSource>();
+            footstepSource.playOnAwake = false;
+            footstepSource.loop = true;
+            footstepSource.volume = footstepVolume;
+            footstepSource.spatialBlend = 1f; // Full 3D spatial audio
+            footstepSource.minDistance = 1f;
+            footstepSource.maxDistance = maxFootstepDistance;
+            footstepSource.rolloffMode = AudioRolloffMode.Linear;
+        }
+        else if (footstepSource != null)
+        {
+            // Apply volume/spatial settings if AudioSource already exists
+            footstepSource.volume = footstepVolume;
+            footstepSource.spatialBlend = 1f;
+            footstepSource.maxDistance = maxFootstepDistance;
+        }
+
+        // Subscribe to GameState events to stop audio on pause/game end
+        if (GameState.Instance != null)
+        {
+            GameState.Instance.OnPauseChanged += HandlePauseChanged;
+            GameState.Instance.OnGameOver += StopAllAudio;
+            GameState.Instance.OnVictory += StopAllAudio;
+        }
 
         Debug.Log("Detect the object: " + detectionPoint.position);
     }
@@ -80,16 +117,23 @@ public class Enemy_Movement : MonoBehaviour
         if (currentState == EnemyState.Idle)
         {
             animator.SetBool("isIdle", true);
+            // Stop footsteps when idle
+            if (footstepSource != null && footstepSource.isPlaying)
+                footstepSource.Stop();
         }
         else if (currentState == EnemyState.Chasing)
         {
 
             animator.SetBool("isChasing", true);
+            // Footsteps will be handled in MoveEnemy
         }
         else if (currentState == EnemyState.Attacking)
         {
 
             animator.SetBool("isAttacking", true);
+            // Stop footsteps during attack
+            if (footstepSource != null && footstepSource.isPlaying)
+                footstepSource.Stop();
         }
         // else if (currentState == EnemyState.Dead)
         // {
@@ -103,6 +147,15 @@ public class Enemy_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Always respect centralized GameState for pause when available
+        if (GameState.Instance != null && GameState.Instance.IsPaused)
+        {
+            // If paused, ensure footstep audio is stopped
+            if (footstepSource != null && footstepSource.isPlaying)
+                footstepSource.Stop();
+            return;
+        }
+
         if (currentState != EnemyState.Knockback)
         {
             CheckForPlayer();
@@ -112,21 +165,27 @@ public class Enemy_Movement : MonoBehaviour
                 attackCooldownTimer -= Time.deltaTime;
             }
 
-
-
             if (currentState == EnemyState.Chasing)
             {
-
                 Debug.Log("Chasinggggggg the player");
                 MoveEnemy();
             }
             else if (currentState == EnemyState.Attacking)
             {
                 rb.linearVelocity = Vector2.zero; // Stop moving when attacking
+                // Ensure footsteps stop when attacking
+                if (footstepSource != null && footstepSource.isPlaying)
+                    footstepSource.Stop();
                 Debug.Log("attackinggggg the player");
             }
+            else
+            {
+                // Stop footsteps in other states (Idle, Knockback)
+                if (footstepSource != null && footstepSource.isPlaying)
+                    footstepSource.Stop();
+            }
         }
-        
+
     }
 
     void MoveEnemy()
@@ -141,6 +200,25 @@ public class Enemy_Movement : MonoBehaviour
             transform.localScale = newScale;
         }
         rb.linearVelocity = new Vector2(player.position.x - transform.position.x, player.position.y - transform.position.y).normalized * speed;
+
+        // Play footstep loop when moving
+        if (footstepSource != null && footstepClip != null)
+        {
+            if (rb.linearVelocity.magnitude > 0.1f)
+            {
+                if (!footstepSource.isPlaying)
+                {
+                    footstepSource.clip = footstepClip;
+                    footstepSource.loop = true;
+                    footstepSource.Play();
+                }
+            }
+            else
+            {
+                if (footstepSource.isPlaying)
+                    footstepSource.Stop();
+            }
+        }
     }
 
     private void CheckForPlayer()
@@ -167,6 +245,9 @@ public class Enemy_Movement : MonoBehaviour
         else
         {
             rb.linearVelocity = Vector2.zero; // Stop moving when player exits the trigger
+            // Stop footsteps when idle
+            if (footstepSource != null && footstepSource.isPlaying)
+                footstepSource.Stop();
             ChangeState(EnemyState.Idle);
         }
     }
@@ -182,6 +263,33 @@ public class Enemy_Movement : MonoBehaviour
         Gizmos.DrawWireSphere(detectionPoint.position, attackRange);
     }
 
+    private void OnDestroy()
+    {
+        // Unsubscribe from GameState events to prevent memory leaks
+        if (GameState.Instance != null)
+        {
+            GameState.Instance.OnPauseChanged -= HandlePauseChanged;
+            GameState.Instance.OnGameOver -= StopAllAudio;
+            GameState.Instance.OnVictory -= StopAllAudio;
+        }
+    }
+
+    private void HandlePauseChanged(bool isPaused)
+    {
+        if (isPaused)
+        {
+            StopAllAudio();
+        }
+    }
+
+    private void StopAllAudio()
+    {
+        if (footstepSource != null && footstepSource.isPlaying)
+        {
+            footstepSource.Stop();
+        }
+    }
+
 }
 
 
@@ -191,7 +299,6 @@ public enum EnemyState
     Idle,
     Chasing,
     Attacking,
-
     Knockback
     // Dead
 }

@@ -222,6 +222,9 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
+  attackSound: {fileID: 8300000, guid: 8728cf1c8f2d9804291079de5400a9c2, type: 3}
+  attackVolume: 0.6
+  maxAttackDistance: 25
 --- !u!114 &5982107923415528937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +262,9 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
+  footstepClip: {fileID: 8300000, guid: ce3dd9f60d0333a499891891766e5022, type: 3}
+  footstepVolume: 0.4
+  maxFootstepDistance: 20
 --- !u!114 &4876055154812750837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +280,8 @@ MonoBehaviour:
   currentHealth: 2
   maxHealth: 2
   isBoss: 0
+  dropPrefab: {fileID: 6750078776292385799, guid: 04dc8aa77e203ec4a971c456c1d9c036, type: 3}
+  dropChance: 57
 --- !u!114 &8815672671547165193
 MonoBehaviour:
   m_ObjectHideFlags: 0

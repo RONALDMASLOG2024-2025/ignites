@@ -22,31 +22,33 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        // Always respect centralized GameState for pause when available
+        if (GameState.Instance != null && GameState.Instance.IsPaused)
+        {
+            return;
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
-
             playerCombat.Attack1();
-
-
         }
 
         if (Input.GetMouseButtonDown(1))
         {
-
             playerCombat.Attack2();
         }
-
- 
-
     }
 
     void FixedUpdate()
     {
+        // Always respect centralized GameState for pause when available
+        if (GameState.Instance != null && GameState.Instance.IsPaused)
+        {
+            return;
+        }
 
         if (isKnockback == false)
         {
-
-
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
 

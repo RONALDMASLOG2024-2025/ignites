@@ -57,9 +57,13 @@ public class Boss_Behavior : MonoBehaviour
 
     private void Update()
     {
-        if (health == null) return;
+        // Always respect centralized GameState for pause/game-end when available
+        if (GameState.Instance != null && GameState.Instance.IsPaused)
+        {
+            return;
+        }
 
-        // Check for phase transitions based on health percentage
+        if (health == null) return;        // Check for phase transitions based on health percentage
         float healthPercent = (float)health.currentHealth / health.maxHealth * 100f;
 
         if (!hasEnteredPhase2 && healthPercent <= phase2Threshold)

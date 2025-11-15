@@ -206,5 +206,11 @@ public class EnemyManager : MonoBehaviour
         {
             bossHealthBar.HideHealthBar();
         }
+        // Show victory UI if available
+        UIManager ui = Object.FindAnyObjectByType<UIManager>();
+        if (ui != null)
+        {
+            ui.ShowVictory();
+        }
     }
 }

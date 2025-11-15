@@ -10,6 +10,14 @@ public class Enemy_Health : MonoBehaviour
     [Tooltip("Check this if this enemy is a boss (won't count toward regular enemy total)")]
     public bool isBoss = false;
 
+    [Header("Loot Drops")]
+    [Tooltip("Prefab to spawn when enemy dies (e.g., meat pickup)")]
+    public GameObject dropPrefab;
+    
+    [Tooltip("Chance to drop loot (0-100%). 100 = always drops")]
+    [Range(0, 100)]
+    public float dropChance = 50f;
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -37,6 +45,13 @@ public class Enemy_Health : MonoBehaviour
 
     private void Die()
     {
+        // Drop loot if configured
+        if (dropPrefab != null && Random.Range(0f, 100f) <= dropChance)
+        {
+            Instantiate(dropPrefab, transform.position, Quaternion.identity);
+            Debug.Log($"{name} dropped loot!");
+        }
+
         // Notify manager if this is a regular enemy
         if (!isBoss && EnemyManager.Instance != null)
         {
