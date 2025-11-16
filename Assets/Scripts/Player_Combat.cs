@@ -8,6 +8,12 @@ public class Player_Combat : MonoBehaviour
     public float weaponRange = 1f;
     public LayerMask enemyLayers;
     public int Damage = 1;
+    
+    [Header("Damage Limits")]
+    [Tooltip("Minimum damage the player can have")]
+    public int minDamage = 1;
+    [Tooltip("Maximum damage the player can have")]
+    public int maxDamage = 20;
 
 
     public float attack1Cooldown = 1f; // Cooldown in seconds for attack 1
@@ -113,5 +119,14 @@ public class Player_Combat : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, weaponRange);
     }
 
+    /// <summary>
+    /// Safely sets the player's damage with min/max clamping.
+    /// Call this when applying bone pickup damage boosts.
+    /// </summary>
+    public void SetDamage(int newDamage)
+    {
+        Damage = Mathf.Clamp(newDamage, minDamage, maxDamage);
+        Debug.Log($"Player Damage set to {Damage} (clamped between {minDamage}-{maxDamage})");
+    }
 
 }

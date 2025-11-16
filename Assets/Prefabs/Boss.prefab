@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e33f714bbd696bf419b3e5d08df89346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Combat
-  damage: 2
+  damage: 4
   attackPoint: {fileID: 4528475677415123846}
   weaponRange: 2
   knockbackForce: 15

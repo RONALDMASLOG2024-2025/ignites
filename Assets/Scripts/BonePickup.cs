@@ -56,18 +56,20 @@ public class BonePickup : MonoBehaviour
             bool statsChanged = false;
             string pickupMessage = "Player picked up bone!";
 
-            // Apply damage boost
+            // Apply damage boost using safe clamping method
             if (damageBoost > 0 && playerCombat != null)
             {
-                playerCombat.Damage += damageBoost;
+                int newDamage = playerCombat.Damage + damageBoost;
+                playerCombat.SetDamage(newDamage);
                 pickupMessage += $" Damage +{damageBoost} (Now: {playerCombat.Damage})";
                 statsChanged = true;
             }
 
-            // Apply speed boost
+            // Apply speed boost using safe clamping method
             if (speedBoost > 0 && playerMovement != null)
             {
-                playerMovement.speed += speedBoost;
+                float newSpeed = playerMovement.speed + speedBoost;
+                playerMovement.SetSpeed(newSpeed);
                 pickupMessage += $" Speed +{speedBoost:F1} (Now: {playerMovement.speed:F1})";
                 statsChanged = true;
             }

@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BonePickup
   damageBoost: 1
-  speedBoost: 0.3
+  speedBoost: 0.2
   destroyOnPickup: 1
   pickupSound: {fileID: 8300000, guid: c044b666597174b49993f0ac96e60935, type: 3}
   pickupVolume: 1

@@ -4,6 +4,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
+    
+    [Header("Speed Limits")]
+    [Tooltip("Minimum speed the player can have")]
+    public float minSpeed = 3f;
+    [Tooltip("Maximum speed the player can have")]
+    public float maxSpeed = 15f;
+    
     public int facingDirection = 1;
     public Rigidbody2D rb;
     public Animator animator;
@@ -110,5 +117,15 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(stunTime);
         rb.linearVelocity = Vector2.zero;
         isKnockback = false;
+    }
+
+    /// <summary>
+    /// Safely sets the player's speed with min/max clamping.
+    /// Call this when applying bone pickup speed boosts.
+    /// </summary>
+    public void SetSpeed(float newSpeed)
+    {
+        speed = Mathf.Clamp(newSpeed, minSpeed, maxSpeed);
+        Debug.Log($"Player Speed set to {speed} (clamped between {minSpeed}-{maxSpeed})");
     }
 }
