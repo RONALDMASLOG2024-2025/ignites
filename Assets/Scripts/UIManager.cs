@@ -49,6 +49,16 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
+        // Check if tutorial is currently active
+        TutorialPanel tutorialPanel = Object.FindAnyObjectByType<TutorialPanel>();
+        bool tutorialActive = tutorialPanel != null && tutorialPanel.IsTutorialActive();
+        
+        // Don't allow pause during tutorial
+        if (tutorialActive)
+        {
+            return;
+        }
+        
         // Toggle pause with Escape key (only when not blocked by game end)
         if (GameState.Instance != null)
         {

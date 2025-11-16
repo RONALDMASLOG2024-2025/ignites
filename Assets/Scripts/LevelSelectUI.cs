@@ -218,7 +218,7 @@ public class LevelSelectUI : MonoBehaviour
     /// </summary>
     private string GetLevelDisplayName(string sceneName, int levelNumber, bool isCompleted)
     {
-        string completedMarker = isCompleted ? " Done" : "";
+        string completedMarker = isCompleted ? "" : "";
         
         // You can customize level names here
         // For now, just use "Level 1", "Level 2", etc.

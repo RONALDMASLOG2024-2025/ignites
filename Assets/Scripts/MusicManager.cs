@@ -12,11 +12,14 @@ public class MusicManager : MonoBehaviour
     public AudioClip menuMusic; // Optional: separate music for main menu
 
     [Header("Scene Settings")]
-    [Tooltip("Scenes where game music should play (e.g., Level1, Level2, BossLevel)")]
+    [Tooltip("Automatically detects scenes starting with 'Level'. Add custom scenes here if needed.")]
     public string[] gameScenes = { "Level1", "Level2", "BossLevel" };
     
     [Tooltip("Scenes where menu music should play (e.g., MainMenu)")]
     public string[] menuScenes = { "MainMenu" };
+    
+    [Tooltip("Auto-detect all scenes starting with 'Level' (recommended)")]
+    public bool autoDetectLevelScenes = true;
 
     private AudioSource audioSource;
     private AudioClip currentlyPlaying;
@@ -98,48 +101,73 @@ public class MusicManager : MonoBehaviour
         Debug.Log("MusicManager: Victory event received. Playing victory fanfare.");
         // Play victory fanfare (non-looping) if assigned, otherwise fade out
         if (victoryMusic != null)
+        {
             PlayVictoryMusic();
+        }
         else
+        {
+            // If no victory music, clear the current track so next level music will play
+            currentlyPlaying = null;
             StopMusic();
+        }
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        // Stop any running victory music cleanup coroutines
+        StopAllCoroutines();
+        
+        // Handle scene music
         HandleSceneMusic(scene.name);
     }
 
     private void HandleSceneMusic(string sceneName)
     {
+        Debug.Log($"MusicManager: Scene loaded: '{sceneName}'. Current track: {(currentlyPlaying != null ? currentlyPlaying.name : "None")}, IsPlaying: {audioSource.isPlaying}");
+        
         // Check if this is a menu scene
         foreach (string menuScene in menuScenes)
         {
             if (sceneName == menuScene)
             {
-                if (menuMusic != null && currentlyPlaying != menuMusic)
+                if (menuMusic != null)
                 {
+                    // Always play menu music when entering menu
                     PlayMenuMusic();
                 }
-                else if (menuMusic == null)
+                else
                 {
                     StopMusic(); // Stop music if no menu music assigned
                 }
-                // If already playing menu music, do nothing (prevents double play)
                 return;
             }
         }
 
         // Check if this is a game scene
+        // First check explicit gameScenes array
+        bool isGameScene = false;
         foreach (string gameScene in gameScenes)
         {
             if (sceneName == gameScene)
             {
-                // Only play if not already playing normal music
-                if (currentlyPlaying != normalMusic)
-                {
-                    PlayNormalMusic();
-                }
-                return;
+                isGameScene = true;
+                break;
             }
+        }
+        
+        // If auto-detect is enabled, also check if scene name starts with "Level"
+        if (!isGameScene && autoDetectLevelScenes && sceneName.StartsWith("Level"))
+        {
+            isGameScene = true;
+            Debug.Log($"MusicManager: Auto-detected '{sceneName}' as a game level");
+        }
+        
+        if (isGameScene)
+        {
+            // Always restart normal music when entering a game level
+            Debug.Log($"MusicManager: Game scene detected. Force playing normal music.");
+            PlayNormalMusic();
+            return;
         }
 
         // If scene is not recognized, stop music
@@ -149,10 +177,20 @@ public class MusicManager : MonoBehaviour
 
     public void PlayNormalMusic()
     {
-        if (normalMusic != null && currentlyPlaying != normalMusic)
+        if (normalMusic == null)
         {
-            StartFadeToClip(normalMusic, true);
+            Debug.LogError("MusicManager: Normal music clip is NOT ASSIGNED! Please assign it in the Inspector.");
+            return;
         }
+        
+        if (audioSource == null)
+        {
+            Debug.LogError("MusicManager: AudioSource is null! This should never happen.");
+            return;
+        }
+        
+        Debug.Log($"MusicManager: Playing normal music '{normalMusic.name}'");
+        StartFadeToClip(normalMusic, true);
     }
 
     public void PlayBossMusic()
@@ -165,29 +203,61 @@ public class MusicManager : MonoBehaviour
 
     public void PlayMenuMusic()
     {
-        if (menuMusic != null && currentlyPlaying != menuMusic)
+        if (menuMusic != null)
         {
+            Debug.Log("MusicManager: Playing menu music");
             StartFadeToClip(menuMusic, true);
+        }
+        else
+        {
+            Debug.LogWarning("MusicManager: Menu music clip not assigned!");
         }
     }
 
     public void StopMusic()
     {
         // Fade out then stop
+        currentlyPlaying = null; // Clear the reference immediately
         StartFadeToClip(null, true);
     }
 
     public void PlayVictoryMusic()
     {
-        if (victoryMusic != null && currentlyPlaying != victoryMusic)
+        if (victoryMusic != null)
         {
             // Victory fanfare usually shouldn't loop
             StartFadeToClip(victoryMusic, false);
+            // Clear currentlyPlaying after victory music so next level will start fresh
+            StartCoroutine(ClearCurrentTrackAfterVictory());
         }
+    }
+    
+    /// <summary>
+    /// Clears the current track reference after victory music finishes
+    /// so that the next level's music will play properly
+    /// </summary>
+    private System.Collections.IEnumerator ClearCurrentTrackAfterVictory()
+    {
+        // Wait for victory music to finish (check its length)
+        if (victoryMusic != null)
+        {
+            yield return new WaitForSeconds(victoryMusic.length + fadeDuration);
+        }
+        
+        // Clear the current track so next scene music will play
+        currentlyPlaying = null;
+        Debug.Log("MusicManager: Victory music finished, cleared current track");
     }
 
     private void StartFadeToClip(AudioClip target, bool loop = true)
     {
+        // If already transitioning to the same clip, don't restart the fade
+        if (fadeCoroutine != null && currentlyPlaying == target && target != null)
+        {
+            Debug.Log($"MusicManager: Already fading to {target.name}, skipping duplicate fade");
+            return;
+        }
+        
         if (fadeCoroutine != null)
         {
             StopCoroutine(fadeCoroutine);
@@ -197,6 +267,8 @@ public class MusicManager : MonoBehaviour
 
     private System.Collections.IEnumerator FadeToClipCoroutine(AudioClip target, float duration)
     {
+        Debug.Log($"MusicManager: Starting fade to '{(target != null ? target.name : "NULL")}'. Duration: {duration}s");
+        
         float startVol = audioSource.volume;
         float time = 0f;
 
@@ -214,7 +286,7 @@ public class MusicManager : MonoBehaviour
         {
             audioSource.Stop();
             currentlyPlaying = null;
-            Debug.Log("Music stopped (faded out)");
+            Debug.Log("MusicManager: Music stopped (faded out)");
             yield break;
         }
 
@@ -226,6 +298,8 @@ public class MusicManager : MonoBehaviour
         audioSource.loop = (target == victoryMusic) ? false : true;
         audioSource.Play();
         currentlyPlaying = target;
+        
+        Debug.Log($"MusicManager: Now playing '{target.name}'. Loop: {audioSource.loop}, IsPlaying: {audioSource.isPlaying}");
 
         // Fade in
         time = 0f;
@@ -237,5 +311,6 @@ public class MusicManager : MonoBehaviour
         }
 
         audioSource.volume = 1f;
+        Debug.Log($"MusicManager: Fade complete. Volume: {audioSource.volume}, IsPlaying: {audioSource.isPlaying}");
     }
 }

@@ -11,16 +11,40 @@ public class PlayerHealth : MonoBehaviour
     public Animator TextAnimation;
 
     public TMP_Text healthText;
+    
+    [Header("Player Stats Display")]
+    [Tooltip("Text to display attack damage (optional)")]
+    public TMP_Text damageText;
+    
+    [Tooltip("Text to display movement speed (optional)")]
+    public TMP_Text speedText;
+    
     // Flag to mark that the player has died. Keep the GameObject active to avoid
     // "Coroutine couldn't be started because the game object is inactive" errors.
     public bool isDead = false;
+    
+    private Player_Combat playerCombat;
+    private PlayerMovement playerMovement;
 
     private void Start()
     {
+        // Get references to player components
+        playerCombat = GetComponent<Player_Combat>();
+        playerMovement = GetComponent<PlayerMovement>();
+        
         // Reset to full health at scene start (each level starts fresh)
         ResetHealth();
         healthText.text = "Life: " + currentHealth + "/" + maxHealth;
         TextAnimation.Play("LifeTextAnim");
+        
+        // Initialize stat displays
+        UpdateStatsDisplay();
+    }
+    
+    private void Update()
+    {
+        // Update stats display every frame to catch bone pickup changes
+        UpdateStatsDisplay();
     }
 
     /// <summary>
@@ -55,6 +79,9 @@ public class PlayerHealth : MonoBehaviour
             TextAnimation.Play("LifeTextAnim");
 
         Debug.Log("Player Life: " + currentHealth);
+        
+        // Update stats display when health changes
+        UpdateStatsDisplay();
 
         if (currentHealth <= 0)
         {
@@ -91,5 +118,24 @@ public class PlayerHealth : MonoBehaviour
             // play a death animation then deactivate in a coroutine.
         }
 
+    }
+    
+    /// <summary>
+    /// Updates the damage and speed stat displays in the UI.
+    /// Called automatically when stats change (e.g., from bone pickups).
+    /// </summary>
+    private void UpdateStatsDisplay()
+    {
+        // Update damage text
+        if (damageText != null && playerCombat != null)
+        {
+            damageText.text = $"Attack: {playerCombat.Damage}";
+        }
+        
+        // Update speed text
+        if (speedText != null && playerMovement != null)
+        {
+            speedText.text = $"Speed: {playerMovement.speed:F1}";
+        }
     }
 }
