@@ -50,6 +50,7 @@
     <Analyzer Include="C:\Users\hp\IGNITES\Library\PackageCache\com.unity.dt.app-ui@7b87c8225c06\Runtime\SourceGenerators\netstandard2.0\EnumToLowerCase.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\WebGLOptimizer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Scripts\TutorialPanel.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Assets\Scripts\HelpPanel.cs" />
     <Compile Include="Assets\Scripts\Enemy_Health.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
+    <Compile Include="Assets\Scripts\ProgressDebugger.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />

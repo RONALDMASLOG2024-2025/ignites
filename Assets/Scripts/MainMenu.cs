@@ -30,6 +30,10 @@ public class MainMenu : MonoBehaviour
 #if UNITY_EDITOR
         // Stop Play Mode in the editor
         EditorApplication.isPlaying = false;
+#elif UNITY_WEBGL
+        // WebGL can't quit - show a message or return to main menu instead
+        Debug.Log("Quit not supported on WebGL. Returning to main menu.");
+        SceneManager.LoadScene("MainMenu");
 #else
         Application.Quit();
 #endif
@@ -46,5 +50,19 @@ public class MainMenu : MonoBehaviour
             if (name == sceneName) return true;
         }
         return false;
+    }
+
+    public void ResetProgress()
+    {
+        if (GameProgressManager.Instance != null)
+        {
+            GameProgressManager.Instance.ResetAllProgress();
+        }
+        
+        // Also clear tutorial flags
+        PlayerPrefs.DeleteKey("Tutorial_Shown");
+        PlayerPrefs.Save();
+        
+        Debug.Log("Progress Reset!");
     }
 }
