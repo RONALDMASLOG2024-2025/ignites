@@ -75435,8 +75435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a31bcb59f9445ac4aa1e033d8464aa39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProgressDebugger
-  resetProgressNow: 1
-  showProgressInfo: 1
+  resetProgressNow: 0
+  showProgressInfo: 0
 --- !u!4 &629726889
 Transform:
   m_ObjectHideFlags: 0

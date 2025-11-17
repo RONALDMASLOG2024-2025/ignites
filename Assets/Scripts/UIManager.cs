@@ -156,10 +156,24 @@ public class UIManager : MonoBehaviour
     /// <summary>
     /// Shows the final victory panel when the player beats the last level.
     /// This is different from regular victory because there's no Next Level button.
+    /// IMPORTANT: Marks the final level as completed since there's no Next Level button.
     /// </summary>
     public void ShowFinalVictory()
     {
         Debug.Log("🎉 FINAL VICTORY! Player beat the game!");
+        
+        // CRITICAL: Mark the final level as completed
+        // Since there's no Next Level button, we must save progress here
+        string currentScene = SceneManager.GetActiveScene().name;
+        if (GameProgressManager.Instance != null)
+        {
+            GameProgressManager.Instance.MarkLevelComplete(currentScene);
+            Debug.Log($"✅ Final level '{currentScene}' marked as completed!");
+        }
+        else
+        {
+            Debug.LogError("GameProgressManager.Instance is null! Final level completion NOT saved!");
+        }
         
         if (finalVictoryPanel != null)
         {

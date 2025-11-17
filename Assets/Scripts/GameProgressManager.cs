@@ -28,10 +28,17 @@ public class GameProgressManager : MonoBehaviour
         {
             if (_instance == null)
             {
-                GameObject go = new GameObject("GameProgressManager");
-                _instance = go.AddComponent<GameProgressManager>();
-                DontDestroyOnLoad(go);
-                _instance.LoadProgress();
+                // Try to find existing instance first (in case Awake already ran)
+                _instance = FindAnyObjectByType<GameProgressManager>();
+                
+                if (_instance == null)
+                {
+                    Debug.Log("🎮 Creating new GameProgressManager instance...");
+                    GameObject go = new GameObject("GameProgressManager");
+                    _instance = go.AddComponent<GameProgressManager>();
+                    DontDestroyOnLoad(go);
+                    // Note: Awake() will handle AutoDetectLevels() and LoadProgress()
+                }
             }
             return _instance;
         }
@@ -49,19 +56,27 @@ public class GameProgressManager : MonoBehaviour
 
     private void Awake()
     {
-        // Ensure singleton pattern
+        // Ensure singleton pattern - prevent duplicates
         if (_instance != null && _instance != this)
         {
+            Debug.LogWarning($"⚠️ Duplicate GameProgressManager detected! Destroying duplicate.");
             Destroy(gameObject);
             return;
         }
-        _instance = this;
-        DontDestroyOnLoad(gameObject);
         
-        // Auto-detect all Level scenes from Build Settings
-        AutoDetectLevels();
-        
-        LoadProgress();
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+            
+            Debug.Log("🎮 GameProgressManager.Awake() - Initializing singleton...");
+            
+            // Auto-detect all Level scenes from Build Settings
+            AutoDetectLevels();
+            
+            // Load saved progress
+            LoadProgress();
+        }
     }
 
     /// <summary>
@@ -150,11 +165,27 @@ public class GameProgressManager : MonoBehaviour
         }
 
         // First level always unlocked
-        if (index == 0) return true;
+        if (index == 0)
+        {
+            Debug.Log($"🔓 {levelSceneName} is unlocked (first level, always available)");
+            return true;
+        }
 
         // Check if previous level is completed
         string previousLevel = allLevels[index - 1];
-        return completedLevels.Contains(previousLevel);
+        bool isUnlocked = completedLevels.Contains(previousLevel);
+        
+        if (isUnlocked)
+        {
+            Debug.Log($"🔓 {levelSceneName} is unlocked (previous level '{previousLevel}' completed)");
+        }
+        else
+        {
+            Debug.Log($"🔒 {levelSceneName} is LOCKED (previous level '{previousLevel}' NOT completed)");
+            Debug.Log($"   Current completed levels: {string.Join(", ", completedLevels)}");
+        }
+        
+        return isUnlocked;
     }
 
     /// <summary>
@@ -210,6 +241,13 @@ public class GameProgressManager : MonoBehaviour
         string data = string.Join(",", completedLevels);
         PlayerPrefs.SetString(PROGRESS_KEY, data);
         PlayerPrefs.Save();
+        
+        Debug.Log($"💾 SaveProgress() called. Saved data: '{data}'");
+        Debug.Log($"💾 Completed levels count: {completedLevels.Count}");
+        foreach (string level in completedLevels)
+        {
+            Debug.Log($"   ✅ Completed: {level}");
+        }
     }
 
     // Load progress from PlayerPrefs
@@ -217,6 +255,9 @@ public class GameProgressManager : MonoBehaviour
     {
         completedLevels.Clear();
         string data = PlayerPrefs.GetString(PROGRESS_KEY, "");
+        
+        Debug.Log($"📂 LoadProgress() called. Raw PlayerPrefs data: '{data}'");
+        
         if (!string.IsNullOrEmpty(data))
         {
             string[] levels = data.Split(',');
@@ -225,9 +266,14 @@ public class GameProgressManager : MonoBehaviour
                 if (!string.IsNullOrEmpty(level))
                 {
                     completedLevels.Add(level.Trim());
+                    Debug.Log($"   ✅ Loaded completed level: {level.Trim()}");
                 }
             }
             Debug.Log($"📂 Loaded progress: {completedLevels.Count} levels completed.");
+        }
+        else
+        {
+            Debug.Log("📂 No saved progress found (starting fresh).");
         }
     }
 }
