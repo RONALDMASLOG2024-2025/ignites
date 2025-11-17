@@ -97,7 +97,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -111,7 +111,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -133,8 +133,8 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
+    resizeAlgorithm: 1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -241,12 +241,12 @@ TextureImporter:
       name: Foam_0
       rect:
         serializedVersion: 2
-        x: 54
-        y: 54
-        width: 84
-        height: 84
+        x: 55
+        y: 55
+        width: 82
+        height: 82
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -263,12 +263,12 @@ TextureImporter:
       name: Foam_1
       rect:
         serializedVersion: 2
-        x: 247
-        y: 54
-        width: 83
-        height: 84
+        x: 248
+        y: 55
+        width: 81
+        height: 82
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -285,12 +285,12 @@ TextureImporter:
       name: Foam_2
       rect:
         serializedVersion: 2
-        x: 439
-        y: 54
-        width: 83
-        height: 84
+        x: 440
+        y: 55
+        width: 81
+        height: 82
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -307,12 +307,12 @@ TextureImporter:
       name: Foam_3
       rect:
         serializedVersion: 2
-        x: 631
-        y: 54
-        width: 83
-        height: 84
+        x: 632
+        y: 55
+        width: 81
+        height: 82
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -329,12 +329,12 @@ TextureImporter:
       name: Foam_4
       rect:
         serializedVersion: 2
-        x: 822
-        y: 54
-        width: 84
-        height: 84
+        x: 823
+        y: 55
+        width: 82
+        height: 82
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -351,12 +351,12 @@ TextureImporter:
       name: Foam_5
       rect:
         serializedVersion: 2
-        x: 1015
-        y: 55
-        width: 82
-        height: 82
+        x: 1016
+        y: 56
+        width: 80
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -373,12 +373,12 @@ TextureImporter:
       name: Foam_6
       rect:
         serializedVersion: 2
-        x: 1028
-        y: 132
-        width: 26
-        height: 8
+        x: 1029
+        y: 133
+        width: 24
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -395,12 +395,12 @@ TextureImporter:
       name: Foam_7
       rect:
         serializedVersion: 2
-        x: 1206
-        y: 54
-        width: 84
-        height: 84
+        x: 1207
+        y: 55
+        width: 82
+        height: 82
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -417,12 +417,12 @@ TextureImporter:
       name: Foam_8
       rect:
         serializedVersion: 2
-        x: 1221
-        y: 133
-        width: 23
-        height: 7
+        x: 1222
+        y: 134
+        width: 21
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -439,12 +439,12 @@ TextureImporter:
       name: Foam_9
       rect:
         serializedVersion: 2
-        x: 1398
-        y: 53
-        width: 85
-        height: 86
+        x: 1399
+        y: 54
+        width: 83
+        height: 84
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -461,12 +461,12 @@ TextureImporter:
       name: Foam_10
       rect:
         serializedVersion: 2
-        x: 1449
-        y: 132
-        width: 17
-        height: 6
+        x: 1450
+        y: 133
+        width: 15
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -483,12 +483,12 @@ TextureImporter:
       name: Foam_11
       rect:
         serializedVersion: 2
-        x: 1092
-        y: 98
-        width: 8
-        height: 26
+        x: 1093
+        y: 99
+        width: 6
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -505,12 +505,12 @@ TextureImporter:
       name: Foam_12
       rect:
         serializedVersion: 2
-        x: 1285
-        y: 100
-        width: 7
-        height: 23
+        x: 1286
+        y: 101
+        width: 5
+        height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -527,12 +527,12 @@ TextureImporter:
       name: Foam_13
       rect:
         serializedVersion: 2
-        x: 1398
-        y: 105
-        width: 6
-        height: 17
+        x: 1399
+        y: 106
+        width: 4
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -549,12 +549,12 @@ TextureImporter:
       name: Foam_14
       rect:
         serializedVersion: 2
-        x: 1013
-        y: 68
-        width: 8
-        height: 26
+        x: 1014
+        y: 69
+        width: 6
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -571,12 +571,12 @@ TextureImporter:
       name: Foam_15
       rect:
         serializedVersion: 2
-        x: 1204
-        y: 69
-        width: 7
-        height: 23
+        x: 1205
+        y: 70
+        width: 5
+        height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -593,12 +593,12 @@ TextureImporter:
       name: Foam_16
       rect:
         serializedVersion: 2
-        x: 1397
-        y: 80
-        width: 6
-        height: 11
+        x: 1398
+        y: 81
+        width: 4
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -615,12 +615,12 @@ TextureImporter:
       name: Foam_17
       rect:
         serializedVersion: 2
-        x: 1476
-        y: 70
-        width: 6
-        height: 17
+        x: 1477
+        y: 71
+        width: 4
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -637,12 +637,12 @@ TextureImporter:
       name: Foam_18
       rect:
         serializedVersion: 2
-        x: 1058
-        y: 52
-        width: 26
-        height: 8
+        x: 1059
+        y: 53
+        width: 24
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -659,12 +659,12 @@ TextureImporter:
       name: Foam_19
       rect:
         serializedVersion: 2
-        x: 1252
-        y: 52
-        width: 23
-        height: 7
+        x: 1253
+        y: 53
+        width: 21
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -681,12 +681,12 @@ TextureImporter:
       name: Foam_20
       rect:
         serializedVersion: 2
-        x: 1414
-        y: 54
-        width: 17
-        height: 6
+        x: 1415
+        y: 55
+        width: 15
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -703,7 +703,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7068cfe9c3dd109428c3a361b7f2759c
     internalID: 0
     vertices: []
     indices: 
@@ -711,7 +711,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Foam_0: -3794750738687043901
       Foam_1: -5671047757210412307
